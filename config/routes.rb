@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'choice/index'
 
   resources :courses
+  resources :students
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
