@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<% m=method(:select) %>
+<%= m.source_location %>
+
 <p>
   <strong>Name:</strong>
   <%= @student.name %>
@@ -9,6 +12,15 @@
   <strong>Number:</strong>
   <%= @student.number %>
 </p>
+
+<%= form_for :student, :url => student_appointments_path(@student.id), :method => "post" do |f| %>
+
+  <p>
+  <%= select "course", "id", options_for_select(Course.all.collect do |c| [c.name, c.id] end), { include_blank: true }%>
+  </p>
+
+  <input type="submit" value="SUBMIT" name="bendan2" />
+<% end %>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'appointments/create'
+
   get 'choice/index'
 
   resources :courses
-  resources :students
+  resources :students do 
+    resources :appointments
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
